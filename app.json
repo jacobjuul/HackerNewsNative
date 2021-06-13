@@ -1,0 +1,12 @@
+{
+  "name": "HackerNewsApp",
+  "displayName": "HackerNewsApp",
+  "expo": {
+    "name": "HackerNewsApp",
+    "slug": "HackerNewsApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
