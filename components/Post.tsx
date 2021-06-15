@@ -4,15 +4,22 @@ import { useAppDispatch, useAppSelector } from '../hooks'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { fetchUser } from '../redux/actions/userActions'
 import { PostType } from '../types/PostTypes'
+import { UsersType } from '../types/UserTypes'
 import { OpenURLButton } from './OpenURLButton'
 
 type PropType = {
   post: PostType
 }
 
+type TUsers = {
+  users: {
+    entities: UsersType
+  }
+}
+
 export const Post = ({ post }: PropType) => {
   const dispatch = useAppDispatch()
-  const users = useAppSelector(({ users }) => users.entities)
+  const users = useAppSelector(({ users }): TUsers => users.entities)
   const navigation = useNavigation()
 
   React.useEffect(() => {

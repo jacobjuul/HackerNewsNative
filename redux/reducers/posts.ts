@@ -1,18 +1,18 @@
-import { PostType } from '../../types/PostTypes'
+import { TPost, TStatus } from '../../types/PostTypes'
 import { SET_POSTS_STATUS, FETCH_POSTS_SUCCESS } from '../../consts/actionTypes'
 
 interface PostsState<T> {
   entities: { [id: number]: T }
   idsByScore: number[]
-  status: 'initial' | 'loading' | 'succeeded' | 'failed'
+  status: TStatus
 }
 
 type PostsAction = {
   type: string
-  payload: PostsState<PostType>
+  payload: PostsState<TPost>
 }
 
-const initialState: PostsState<PostType> = {
+const initialState: PostsState<TPost> = {
   entities: {},
   idsByScore: [],
   status: 'initial',

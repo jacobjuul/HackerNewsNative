@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { ScrollView, StyleSheet, RefreshControl } from 'react-native'
-import { PostsType } from '../types/PostTypes'
+import { IPosts, TStatus } from '../types/PostTypes'
 import { Post } from './Post'
 
 type PropType = {
-  posts: PostsType
+  posts: IPosts
   idsByScore: number[]
-  status: 'initial' | 'loading' | 'succeeded' | 'failed'
+  status: TStatus
   onRefresh: () => void
 }
 

@@ -6,11 +6,11 @@ import {
   SET_POSTS_STATUS,
   FETCH_POSTS_SUCCESS,
 } from '../../consts/actionTypes'
-import { PostsType } from '../../types/PostTypes'
+import { IPosts, TStatus } from '../../types/PostTypes'
 import { RootState } from '../store'
 import { getRandom } from '../../utilities/getRandom'
 
-export const setPostStatus = (status) => ({
+export const setPostStatus = (status: TStatus) => ({
   type: SET_POSTS_STATUS,
   payload: status,
 })
@@ -28,7 +28,7 @@ export const fetchPosts =
     )
 
     Promise.all(promises).then((results) => {
-      const entities: PostsType = results.reduce((sum, curr) => {
+      const entities: IPosts = results.reduce((sum, curr) => {
         return {
           ...sum,
           [curr.data.id]: {

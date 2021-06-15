@@ -1,17 +1,23 @@
-import { UserType } from '../../types/UserTypes'
+import { TUser } from '../../types/UserTypes'
+import { TStatus } from '../../types/PostTypes'
 import { FETCH_USER, FETCH_USER_SUCCESS } from '../../consts/actionTypes'
 
-interface UsersState<T> {
+interface IUsersState<T> {
   entities: { [id: number]: T }
-  status: 'initial' | 'loading' | 'succeeded' | 'failed'
+  status: TStatus
 }
 
-const initialState: UsersState<UserType> = {
+const initialState: IUsersState<TUser> = {
   entities: {},
   status: 'initial',
 }
 
-export function users(state = initialState, action) {
+type UsersAction = {
+  type: string
+  payload: TUser
+}
+
+export function users(state = initialState, action: UsersAction) {
   switch (action.type) {
     case FETCH_USER: {
       return {

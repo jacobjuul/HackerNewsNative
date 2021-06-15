@@ -1,4 +1,4 @@
-export type PostType = {
+export type TPost = {
   id: number
   title: string
   by: string
@@ -6,9 +6,11 @@ export type PostType = {
   score: number
   url: string
   descendants: number
-  time: Date
+  time: number
 }
 
-export interface PostsType {
-  [id: number]: PostType
+export interface IPosts {
+  [id: number]: TPost
 }
+
+export type TStatus = 'initial' | 'loading' | 'succeeded' | 'failed'

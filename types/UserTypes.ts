@@ -1,8 +1,4 @@
-export type UserType = {
+export type TUser = {
   id: string
   karma: number
-}
-
-export interface UsersType {
-  [id: string]: UserType
 }
