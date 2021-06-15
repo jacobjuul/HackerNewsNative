@@ -6,6 +6,7 @@ export type PostType = {
   score: number
   url: string
   descendants: number
+  time: Date
 }
 
 export interface PostsType {
