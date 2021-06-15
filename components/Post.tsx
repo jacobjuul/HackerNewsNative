@@ -17,7 +17,7 @@ export const Post = ({ post }: PropType) => {
 
   React.useEffect(() => {
     dispatch(fetchUser(post.by))
-  }, [])
+  }, [post.by])
 
   return (
     <View style={styles.container}>
@@ -42,8 +42,11 @@ export const Post = ({ post }: PropType) => {
           <View style={styles.authorContainer}>
             <Text style={styles.textItalic}>Submitter:</Text>
             <Text>
-              {`${post.by} (${users[post.by] && users[post.by].karma})`}
+              {`${post.by} (${(users[post.by] && users[post.by].karma) || 0})`}
             </Text>
+          </View>
+          <View>
+            <Text>on: {new Date(post.time * 1000).toDateString()}</Text>
           </View>
         </View>
       </View>
